@@ -68,22 +68,6 @@ img {
   transform: scale(0.97);
   background-color: #95a5a6;
 }
-.main-container:after {
-  content: '';
-  position: absolute;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-.main-container {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  /* border:1px solid red; */
-}
 
 #logo {
   border: 1px solid #000;
@@ -91,10 +75,13 @@ img {
 }
 
 .main-nav {
+  top:0;
+  left:0;
   position: fixed;
   display: flex;
   padding: 2em 4em;
   z-index: 12;
+
 }
 
 .main-nav .ul__second {
@@ -114,15 +101,32 @@ img {
   align-items: center;
 }
 
+.main-container {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style:none;
+  /* border:1px solid red; */
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 .container {
+  border:1px solid red;
   width: 400vw;
   display: flex;
   flex-direction: row;
-  
-
+  transform:rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
 }
 
-.container .summer {
+ .slide {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -133,18 +137,14 @@ img {
 }
 
 
-.container .summer .image {
-  width: 400px;
-  height: 600px;
+.container .slide .image {
+
+  flex-basis: 40%;
 }
 
 .content {
-  margin-top: 50px;
-  margin-right: 100px;
+  flex-basis: 40%;
   text-align: center;
   z-index: 10;
 }
 
-/* ::-webkit-scrollbar{
-display: none;
-} */
